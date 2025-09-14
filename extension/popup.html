@@ -1,0 +1,50 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>X Profile Scraper</title>
+    <style>
+      body { font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif; margin: 12px; min-width: 320px; }
+      h1 { font-size: 14px; margin: 0 0 8px; }
+      .row { display: flex; align-items: center; gap: 8px; margin: 6px 0; }
+      label { font-size: 12px; }
+      input[type="number"] { width: 100px; }
+      button { padding: 6px 10px; font-size: 12px; cursor: pointer; }
+      .actions { display: flex; gap: 8px; margin-top: 8px; flex-wrap: wrap; }
+      .status { margin-top: 8px; font-size: 12px; color: #333; }
+      .muted { opacity: 0.7; }
+    </style>
+  </head>
+  <body>
+    <h1>X Profile Scraper (No API)</h1>
+    <div class="row">
+      <label>
+        取得上限(ツイート数)
+        <input type="number" id="maxTweets" min="1" max="50000" value="10000" />
+      </label>
+    </div>
+    <div class="row">
+      <label>
+        スクロール間隔(ms)
+        <input type="number" id="throttleMs" min="250" max="3000" value="100000" />
+      </label>
+    </div>
+    <div class="row">
+      <label>
+        <input type="checkbox" id="onlyOwner" checked />
+        このプロフィール本人のツイートのみ
+      </label>
+    </div>
+    <div class="actions">
+      <button id="startBtn">開始</button>
+      <button id="stopBtn">停止</button>
+      <button id="exportBtn">CSV出力</button>
+      <button id="clearBtn" class="muted">クリア</button>
+    </div>
+    <div class="status" id="status">
+      タブでXのプロフィール(例: https://x.com/ootsuka_techs)を開いてください。
+    </div>
+    <script src="popup.js"></script>
+  </body>
+  </html>
+
